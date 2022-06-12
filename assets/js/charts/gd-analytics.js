@@ -207,13 +207,13 @@
           borderColor: '#dee6ed',
           borderOpacity: 1,
           borderWidth: 1,
-          color: '#e2f5f0',
+          color: '#ccd7e2',
           enableZoom: false,
-          hoverColor: '#6fcdb3',
+          hoverColor: '#9cabff',
           hoverOpacity: null,
           normalizeFunction: 'linear',
-          scaleColors: ['#e2f5f0', '#3fbd9a'],
-          selectedColor: '#0fac81',
+          scaleColors: ['#ccd7e2', '#798bff'],
+          selectedColor: '#6576ff',
           showTooltip: true,
           values: map_data.data,
           onLabelShow: function onLabelShow(event, label, code) {
@@ -236,7 +236,7 @@
     legend: false,
     datasets: [{
       borderColor: "#fff",
-      background: ["#6fcdb3", "#f65c5f", "#ff947b"],
+      background: ["#9cabff", "#b8acff", "#7de1f8"],
       data: [84.5, 14.2, 1.3]
     }]
   };
@@ -246,7 +246,7 @@
     legend: false,
     datasets: [{
       borderColor: "#fff",
-      background: ["#3fbd9a", "#f65c5f", "#ff947b", "#1b7a7a"],
+      background: ["#798bff", "#b8acff", "#ffa9ce", "#f9db7b"],
       data: [4305, 859, 482, 138]
     }]
   };
@@ -330,8 +330,8 @@
     lineTension: .1,
     datasets: [{
       label: "Organic Search",
-      color: "#3fbd9a",
-      background: NioApp.hexRGB('#3fbd9a', .25),
+      color: "#798bff",
+      background: NioApp.hexRGB('#798bff', .25),
       data: [110, 80, 125, 65, 95, 75, 90, 110, 80, 125, 70, 95]
     }]
   };
@@ -341,8 +341,8 @@
     lineTension: .1,
     datasets: [{
       label: "Social Media",
-      color: "#f65c5f",
-      background: NioApp.hexRGB('#f65c5f', .25),
+      color: "#b8acff",
+      background: NioApp.hexRGB('#b8acff', .25),
       data: [110, 80, 125, 65, 95, 75, 90, 110, 80, 125, 70, 95]
     }]
   };
@@ -352,8 +352,8 @@
     lineTension: .1,
     datasets: [{
       label: "Referrals",
-      color: "#ff947b",
-      background: NioApp.hexRGB('#ff947b', .25),
+      color: "#ffa9ce",
+      background: NioApp.hexRGB('#ffa9ce', .25),
       data: [110, 80, 125, 65, 95, 75, 90, 110, 80, 125, 70, 95]
     }]
   };
@@ -363,8 +363,8 @@
     lineTension: .1,
     datasets: [{
       label: "Others",
-      color: "#1b7a7a",
-      background: NioApp.hexRGB('#1b7a7a', .25),
+      color: "#f9db7b",
+      background: NioApp.hexRGB('#f9db7b', .25),
       data: [110, 80, 125, 65, 95, 75, 90, 110, 80, 125, 70, 95]
     }]
   };
@@ -374,8 +374,8 @@
     lineTension: .1,
     datasets: [{
       label: "Bounce Rate",
-      color: "#3fbd9a",
-      background: NioApp.hexRGB('#3fbd9a', .25),
+      color: "#798bff",
+      background: NioApp.hexRGB('#798bff', .25),
       data: [110, 80, 125, 65, 95, 75, 90, 110, 80, 125, 70, 95]
     }]
   };
@@ -385,8 +385,8 @@
     lineTension: .1,
     datasets: [{
       label: "Pageviews",
-      color: "#f65c5f",
-      background: NioApp.hexRGB('#f65c5f', .25),
+      color: "#9a89ff",
+      background: NioApp.hexRGB('#9a89ff', .25),
       data: [110, 80, 125, 65, 95, 75, 90, 110, 80, 125, 70, 95]
     }]
   };
@@ -396,8 +396,8 @@
     lineTension: .1,
     datasets: [{
       label: "New Users",
-      color: "#3fbd9a",
-      background: NioApp.hexRGB('#3fbd9a', .25),
+      color: "#798bff",
+      background: NioApp.hexRGB('#798bff', .25),
       data: [110, 80, 125, 65, 95, 75, 90, 110, 80, 125, 70, 95]
     }]
   };
@@ -407,8 +407,8 @@
     lineTension: .1,
     datasets: [{
       label: "Time on Site",
-      color: "#f65c5f",
-      background: NioApp.hexRGB('#f65c5f', .25),
+      color: "#9a89ff",
+      background: NioApp.hexRGB('#9a89ff', .25),
       data: [110, 80, 125, 65, 95, 75, 90, 110, 80, 125, 70, 95]
     }]
   };
@@ -530,8 +530,8 @@
     lineTension: .1,
     datasets: [{
       label: "Active Users",
-      color: "#6fcdb3",
-      background: "#6fcdb3",
+      color: "#9cabff",
+      background: "#9cabff",
       data: [1110, 1220, 1310, 980, 900, 770, 1060, 830, 690, 730, 790, 950, 1100, 800, 1250, 850, 950, 450, 900, 1000, 1200, 1250, 900, 950, 1300, 1200, 1250, 650, 950, 750]
     }]
   };
@@ -649,15 +649,15 @@
     lineTension: .1,
     datasets: [{
       label: "Current Month",
-      color: "#a5d0d0",
+      color: "#c4cefe",
       dash: [5],
       background: "transparent",
       data: [3910, 4420, 4110, 5180, 4400, 5170, 6460, 8830, 5290, 5430, 4690, 4350, 4600, 5200, 5650, 6850, 6950, 4150, 4300, 6000, 6800, 2250, 6900, 7950, 6900, 4200, 6250, 7650, 8950, 9750]
     }, {
       label: "Current Month",
-      color: "#3fbd9a",
+      color: "#798bff",
       dash: 0,
-      background: NioApp.hexRGB('#3fbd9a', .15),
+      background: NioApp.hexRGB('#798bff', .15),
       data: [4110, 4220, 4810, 5480, 4600, 5670, 6660, 4830, 5590, 5730, 4790, 4950, 5100, 5800, 5950, 5850, 5950, 4450, 4900, 8000, 7200, 7250, 7900, 8950, 6300, 7200, 7250, 7650, 6950, 4750]
     }]
   };

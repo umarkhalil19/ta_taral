@@ -1,7 +1,7 @@
 /*! Email Template */
 .email-wraper { background: #f5f6fa; font-size: 14px; line-height: 22px; font-weight: 400; color: #8094ae; width: 100%; }
 
-.email-wraper a { color: #0fac81; word-break: break-all; }
+.email-wraper a { color: #6576ff; word-break: break-all; }
 
 .email-wraper .link-block { display: block; }
 
@@ -21,7 +21,7 @@
 
 .email-warning { border-bottom: #f4bd0e; }
 
-.email-btn { background: #0fac81; border-radius: 4px; color: #ffffff !important; display: inline-block; font-size: 13px; font-weight: 600; line-height: 44px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 0 30px; }
+.email-btn { background: #6576ff; border-radius: 4px; color: #ffffff !important; display: inline-block; font-size: 13px; font-weight: 600; line-height: 44px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 0 30px; }
 
 .email-btn-sm { line-height: 38px; }
 
@@ -29,9 +29,9 @@
 
 .email-logo { height: 40px; }
 
-.email-title { font-size: 13px; color: #0fac81; padding-top: 12px; }
+.email-title { font-size: 13px; color: #6576ff; padding-top: 12px; }
 
-.email-heading { font-size: 18px; color: #0fac81; font-weight: 600; margin: 0; line-height: 1.4; }
+.email-heading { font-size: 18px; color: #6576ff; font-weight: 600; margin: 0; line-height: 1.4; }
 
 .email-heading-sm { font-size: 24px; line-height: 1.4; margin-bottom: .75rem; }
 
@@ -39,7 +39,7 @@
 
 .email-heading-s2 { font-size: 16px; color: #526484; font-weight: 600; margin: 0; text-transform: uppercase; margin-bottom: 10px; }
 
-.email-heading-s3 { font-size: 18px; color: #0fac81; font-weight: 400; margin-bottom: 8px; }
+.email-heading-s3 { font-size: 18px; color: #6576ff; font-weight: 400; margin-bottom: 8px; }
 
 .email-heading-success { color: #1ee0ac; }
 
