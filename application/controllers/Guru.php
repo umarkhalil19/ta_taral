@@ -37,4 +37,44 @@ class Guru extends CI_Controller
     {
         $this->mylib->gview('mapel_nilai');
     }
+
+    public function siswa_prestasi($id = '')
+    {
+        $this->mylib->gview('siswa_prestasi');
+    }
+
+    public function siswa_prestasi_add($id = '')
+    {
+        $this->mylib->gview('siswa_prestasi_add');
+    }
+
+    public function siswa_prestasi_act()
+    {
+        redirect('guru/siswa_prestasi');
+    }
+
+    public function siswa_ekskul($id = '')
+    {
+        $this->mylib->gview('siswa_ekskul');
+    }
+
+    public function siswa_ekskul_add($id = '')
+    {
+        $this->mylib->gview('siswa_ekskul_add');
+    }
+
+    public function siswa_ekskul_act()
+    {
+        redirect('guru/siswa_ekskul');
+    }
+
+    public function siswa_ket($id = '')
+    {
+        $this->mylib->gview('siswa_ket');
+    }
+
+    public function siswa_ket_act()
+    {
+        redirect('guru/kelas_siswa');
+    }
 }

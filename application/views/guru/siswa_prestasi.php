@@ -6,8 +6,9 @@
                 <div class="nk-block-head nk-block-head-sm">
                     <div class="nk-block-between">
                         <div class="nk-block-head-content">
-                            <h3 class="nk-block-title page-title">Siswa</h3>
+                            <h3 class="nk-block-title page-title">Prestasi</h3>
                         </div><!-- .nk-block-head-content -->
+                        <a href="<?= base_url('guru/kelas_siswa/') ?>" class="btn btn-md btn-warning" title="Kembali"><em class="icon ni ni-arrow-left-fill-c"></em></a>
                     </div><!-- .nk-block-between -->
                 </div><!-- .nk-block-head -->
                 <div class="nk-block">
@@ -17,9 +18,9 @@
                                 <div class="card-inner">
                                     <div class="card-title-group align-start mb-0">
                                         <div class="card-title">
-                                            <h4>Tabel Data Siswa</h4>
+                                            <h4>Tabel Data Prestasi Umar Khalil</h4>
                                         </div>
-                                        <a href="<?= base_url('guru/kelas_detail/') ?>" class="btn btn-md btn-warning" title="Kembali"><em class="icon ni ni-arrow-left-fill-c"></em></a>
+                                        <a href="<?= base_url('guru/siswa_prestasi_add/') ?>" class="btn btn-md btn-primary float-right" title="Tambah Prestasi Siswa"><em class="icon ni ni-plus-round-fill"></em></a>
                                     </div>
                                     <br>
                                     <table class="datatable-init table">
@@ -27,26 +28,19 @@
                                             <tr>
                                                 <th style="width: 5%;">#</th>
                                                 <th>Nama</th>
-                                                <th>NIS</th>
-                                                <th>Tempat/Tanggal Lahir</th>
-                                                <th>L/P</th>
-                                                <th>No Hp</th>
+                                                <th>Keterangan</th>
+                                                <th>Tahun Ajaran/Semester</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>Umar Khalil</td>
-                                                <td>44523</td>
-                                                <td>Bireuen/19 Juni 1997</td>
-                                                <td>L</td>
-                                                <td>082165401626</td>
+                                                <td>Juara 1 Olimpiade TIK</td>
+                                                <td>Tingkat Provinsi Aceh</td>
+                                                <td>2022/2023-Semester Ganjil</td>
                                                 <td>
-                                                    <a href="" class="btn btn-sm btn-info" title="Detail Siswa"><em class="icon ni ni-search"></em></a>
-                                                    <a href="<?= base_url('guru/siswa_prestasi') ?>" class="btn btn-sm btn-success" title="Prestasi Siswa"><em class="icon ni ni-star"></em></a>
-                                                    <a href="<?= base_url('guru/siswa_ekskul') ?>" class="btn btn-sm btn-primary" title="Ekstrakurikuler Siswa"><em class="icon ni ni-thumbs-up"></em></a>
-                                                    <a href="<?= base_url('guru/siswa_ket/') ?>" class="btn btn-sm btn-secondary" title="Keterangan Lainnya"><em class="icon ni ni-list-index-fill"></em></em></a>
+                                                    <a href="" class="btn btn-sm btn-danger" title="Hapus Data Prestasi"><em class="icon ni ni-trash"></em></a>
                                                 </td>
                                             </tr>
                                         </tbody>
