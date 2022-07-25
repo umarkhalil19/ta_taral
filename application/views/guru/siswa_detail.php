@@ -20,7 +20,7 @@
                                     </div>
                                     <?php
                                     $attribut = ['class' => 'gy-3'];
-                                    echo form_open('admin/siswa_update', $attribut);
+                                    echo form_open('guru/siswa_update', $attribut);
                                     ?>
                                     <div class="row g-3 align-center">
                                         <div class="col-lg-4">
@@ -424,7 +424,7 @@
                                     <div class="row g-3">
                                         <div class="col-lg-8 offset-lg-5">
                                             <div class="form-group mt-2">
-                                                <a href="<?= base_url('admin/siswa') ?>" class="btn btn-lg btn-warning">Kembali</a>
+                                                <a href="<?= base_url('guru/kelas_siswa/') ?>" class="btn btn-lg btn-warning">Kembali</a>
                                                 <button type="submit" class="btn btn-lg btn-primary">Simpan</button>
                                             </div>
                                         </div>

@@ -32,7 +32,23 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="nis" name="nis" placeholder="Nomor Induk Siswa">
+                                                    <input type="text" class="form-control" id="nis" name="nis" value="<?= set_value('nis') ?>">
+                                                </div>
+                                                <?php echo form_error('nis', '<small><span class="text-danger">', '</span></small>'); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-3 align-center">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="site-name">NISN</label>
+                                                <span class="form-note">Isi dengan Nomor Induk Siswa Nasional</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="form-group">
+                                                <div class="form-control-wrap">
+                                                    <input type="text" class="form-control" id="nisn" name="nisn" value="<?= set_value('nisn') ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -47,8 +63,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
+                                                    <input type="text" class="form-control" id="nama" name="nama" value="<?= set_value('nama') ?>">
                                                 </div>
+                                                <?php echo form_error('nama', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -62,8 +79,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir">
+                                                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= set_value('tempat_lahir') ?>">
                                                 </div>
+                                                <?php echo form_error('tempat_lahir', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -77,8 +95,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" placeholder="Pendidikan Terakhir">
+                                                    <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?= set_value('tgl_lahir') ?>">
                                                 </div>
+                                                <?php echo form_error('tgl_lahir', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -110,13 +129,43 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+                                                    <select name="agama" id="agama" class="form-control">
                                                         <option value="Islam">Islam</option>
                                                         <option value="Kristen">Kristen</option>
                                                         <option value="Katolik">Katolik</option>
                                                         <option value="Hindu">Hindu</option>
                                                         <option value="Budha">Budha</option>
                                                     </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-3 align-center">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label">Status Dalam Keluarga</label>
+                                                <span class="form-note">Isi dengan Status dalam keluarga</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="form-group">
+                                                <div class="form-control-wrap">
+                                                    <input type="text" class="form-control" id="status_keluarga" name="status_keluarga" value="<?= set_value('status_keluarga') ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-3 align-center">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label">Urutan Anake Ke-</label>
+                                                <span class="form-note">Isi dengan Urutan Anak dalam keluarga</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="form-group">
+                                                <div class="form-control-wrap">
+                                                    <input type="text" class="form-control" id="urutan_anak" name="urutan_anak" value="<?= set_value('urutan_anak') ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -131,8 +180,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <textarea name="alamat" id="alamat" cols="30" rows="5" class="form-control"></textarea>
+                                                    <textarea name="alamat" id="alamat" cols="30" rows="5" class="form-control"><?= set_value('alamat') ?></textarea>
                                                 </div>
+                                                <?php echo form_error('alamat', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -146,8 +196,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="date" class="form-control" id="tgl_masuk" name="tgl_masuk">
+                                                    <input type="date" class="form-control" id="tgl_masuk" name="tgl_masuk" value="<?= set_value('tgl_masuk') ?>">
                                                 </div>
+                                                <?php echo form_error('tgl_masuk', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +231,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Nomor HP">
+                                                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?= set_value('no_hp') ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -195,8 +246,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="ayah" name="ayah" placeholder="Nama Ayah">
+                                                    <input type="text" class="form-control" id="ayah" name="ayah" value="<?= set_value('ayah') ?>">
                                                 </div>
+                                                <?php echo form_error('ayah', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -210,7 +262,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="ayah_kerja" name="ayah_kerja" placeholder="Pekerjaan Ayah">
+                                                    <input type="text" class="form-control" id="ayah_kerja" name="ayah_kerja" value="<?= set_value('ayah_kerja') ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -225,8 +277,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="ayah_no_hp" name="ayah_no_hp" placeholder="Nomor HP Ayah">
+                                                    <input type="text" class="form-control" id="ayah_no_hp" name="ayah_no_hp" value="<?= set_value('ayah_no_hp') ?>">
                                                 </div>
+                                                <?php echo form_error('ayah_no_hp', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -240,7 +293,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <textarea name="alamat_ayah" id="alamat_ayah" cols="30" rows="5" class="form-control"></textarea>
+                                                    <textarea name="alamat_ayah" id="alamat_ayah" cols="30" rows="5" class="form-control"><?= set_value('alamat_ayah') ?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -255,8 +308,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="ibu" name="ibu" placeholder="Nama Ibu">
+                                                    <input type="text" class="form-control" id="ibu" name="ibu" value="<?= set_value('ibu') ?>">
                                                 </div>
+                                                <?php echo form_error('ibu', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -270,7 +324,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="ibu_kerja" name="ibu_kerja" placeholder="Pekerjaan Ibu">
+                                                    <input type="text" class="form-control" id="ibu_kerja" name="ibu_kerja" value="<?= set_value('ibu_kerja') ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -285,8 +339,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="ibu_no_hp" name="ibu_no_hp" placeholder="Nomor HP Ibu">
+                                                    <input type="text" class="form-control" id="ibu_no_hp" name="ibu_no_hp" value="<?= set_value('ibu_no_hp') ?>">
                                                 </div>
+                                                <?php echo form_error('ibu_no_hp', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -300,7 +355,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <textarea name="alamat_ibu" id="alamat_ibu" cols="30" rows="5" class="form-control"></textarea>
+                                                    <textarea name="alamat_ibu" id="alamat_ibu" cols="30" rows="5" class="form-control"><?= set_value('alamat_ibu') ?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -315,7 +370,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="wali" name="wali" placeholder="Nama Wali">
+                                                    <input type="text" class="form-control" id="wali" name="wali" value="<?= set_value('wali') ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -330,7 +385,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="wali_kerja" name="wali_kerja" placeholder="Pekerjaan Wali">
+                                                    <input type="text" class="form-control" id="wali_kerja" name="wali_kerja" value="<?= set_value('wali_kerja') ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -345,7 +400,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="wali_no_hp" name="wali_no_hp" placeholder="Nomor HP Wali">
+                                                    <input type="text" class="form-control" id="wali_no_hp" name="wali_no_hp" value="<?= set_value('wali_no_hp') ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -360,7 +415,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <textarea name="alamat_wali" id="alamat_wali" cols="30" rows="5" class="form-control"></textarea>
+                                                    <textarea name="alamat_wali" id="alamat_wali" cols="30" rows="5" class="form-control"><?= set_value('alamat_wali') ?></textarea>
                                                 </div>
                                             </div>
                                         </div>

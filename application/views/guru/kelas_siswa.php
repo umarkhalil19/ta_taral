@@ -10,6 +10,8 @@
                         </div><!-- .nk-block-head-content -->
                     </div><!-- .nk-block-between -->
                 </div><!-- .nk-block-head -->
+                <?php if (isset($_GET['notif'])) : _notif($this->session->flashdata($_GET['notif']));
+                endif; ?>
                 <div class="nk-block">
                     <div class="row g-gs">
                         <div class="col-md-12">
@@ -19,7 +21,7 @@
                                         <div class="card-title">
                                             <h4>Tabel Data Siswa</h4>
                                         </div>
-                                        <a href="<?= base_url('guru/kelas_detail/') ?>" class="btn btn-md btn-warning" title="Kembali"><em class="icon ni ni-arrow-left-fill-c"></em></a>
+                                        <a href="<?= base_url('guru/kelas_detail/' . $this->session->userdata('kelas')) ?>" class="btn btn-md btn-warning" title="Kembali"><em class="icon ni ni-arrow-left-fill-c"></em></a>
                                     </div>
                                     <br>
                                     <table class="datatable-init table">
@@ -35,20 +37,27 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Umar Khalil</td>
-                                                <td>44523</td>
-                                                <td>Bireuen/19 Juni 1997</td>
-                                                <td>L</td>
-                                                <td>082165401626</td>
-                                                <td>
-                                                    <a href="" class="btn btn-sm btn-info" title="Detail Siswa"><em class="icon ni ni-search"></em></a>
-                                                    <a href="<?= base_url('guru/siswa_prestasi') ?>" class="btn btn-sm btn-success" title="Prestasi Siswa"><em class="icon ni ni-star"></em></a>
-                                                    <a href="<?= base_url('guru/siswa_ekskul') ?>" class="btn btn-sm btn-primary" title="Ekstrakurikuler Siswa"><em class="icon ni ni-thumbs-up"></em></a>
-                                                    <a href="<?= base_url('guru/siswa_ket/') ?>" class="btn btn-sm btn-secondary" title="Keterangan Lainnya"><em class="icon ni ni-list-index-fill"></em></em></a>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($siswa->result() as $s) :
+                                            ?>
+                                                <tr>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $s->nama ?></td>
+                                                    <td><?= $s->nis ?></td>
+                                                    <td><?= $s->tempat_lahir . '/' . $s->tgl_lahir ?></td>
+                                                    <td><?= $s->jenis_kelamin ?></td>
+                                                    <td><?= $s->no_telp ?></td>
+                                                    <td>
+                                                        <a href="<?= base_url('guru/siswa_detail/' . $s->nis) ?>" class="btn btn-sm btn-info" title="Detail Siswa"><em class="icon ni ni-search"></em></a>
+                                                        <a href="<?= base_url('guru/siswa_prestasi/' . $s->nis) ?>" class="btn btn-sm btn-success" title="Prestasi Siswa"><em class="icon ni ni-star"></em></a>
+                                                        <a href="<?= base_url('guru/siswa_ekskul/' . $s->nis) ?>" class="btn btn-sm btn-primary" title="Ekstrakurikuler Siswa"><em class="icon ni ni-thumbs-up"></em></a>
+                                                        <a href="<?= base_url('guru/siswa_ket/' . $s->nis) ?>" class="btn btn-sm btn-secondary" title="Keterangan Lainnya"><em class="icon ni ni-list-index-fill"></em></em></a>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                            endforeach;
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

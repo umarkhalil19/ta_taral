@@ -32,8 +32,10 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="nama" name="nama" value="Nama Kelas">
+                                                    <input type="text" class="form-control" id="nama" name="nama" value="<?= set_value('nama', $kelas->nama); ?>">
+                                                    <input type="hidden" class="form-control" id="id" name="id" value="<?= $kelas->id; ?>">
                                                 </div>
+                                                <?php echo form_error('nama', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -48,7 +50,13 @@
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
                                                     <select name="tahun_ajar" id="tahun_ajar" class="form-control">
-                                                        <option value="1">2022/2023-Ganjil</option>
+                                                        <?php
+                                                        foreach ($tahun->result() as $t) :
+                                                        ?>
+                                                            <option <?= ($kelas->tahun_ajaran_id == $t->id) ? "selected" : "" ?> value="<?= $t->id ?>"><?= $t->tahun_ajaran ?> - <?= $t->semester ?></option>
+                                                        <?php
+                                                        endforeach;
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -65,7 +73,13 @@
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
                                                     <select name="wali_kelas" id="wali_kelas" class="form-control">
-                                                        <option value="1">Asmah Zakaria, S.Pd</option>
+                                                        <?php
+                                                        foreach ($guru->result() as $g) :
+                                                        ?>
+                                                            <option <?= ($kelas->nip_guru == $g->nip) ? "selected" : "" ?> value="<?= $g->nip ?>"><?= $g->nama ?></option>
+                                                        <?php
+                                                        endforeach
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -74,7 +88,8 @@
                                     <div class="row g-3">
                                         <div class="col-lg-8 offset-lg-5">
                                             <div class="form-group mt-2">
-                                                <button type="submit" class="btn btn-lg btn-primary">Tambah</button>
+                                                <a href="<?= base_url('admin/kelas') ?>" class="btn btn-lg btn-warning">Kembali</a>
+                                                <button type="submit" class="btn btn-lg btn-primary">Simpan</button>
                                             </div>
                                         </div>
                                     </div>

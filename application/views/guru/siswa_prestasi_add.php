@@ -32,8 +32,10 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Prestasi">
+                                                    <input type="hidden" class="form-control" id="nis" name="nis" placeholder="Nama Prestasi" value="<?= $siswa->nis ?>">
+                                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Prestasi" value="<?= set_value('nama') ?>">
                                                 </div>
+                                                <?php echo form_error('nama', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -47,8 +49,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <textarea name="keterangan" id="keterangan" cols="30" rows="3" class="form-control"></textarea>
+                                                    <textarea name="keterangan" id="keterangan" cols="30" rows="3" class="form-control"><?= set_value('keterangan') ?></textarea>
                                                 </div>
+                                                <?php echo form_error('keterangan', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -62,8 +65,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="tahun" name="tahun" value="2022/2023-Ganjil" readonly>
-                                                    <input type="hidden" class="form-control" id="tahun_id" name="tahun_id" value="1">
+                                                    <input type="text" class="form-control" id="tahun" name="tahun" value="<?= "$tahun->tahun_ajaran-$tahun->semester" ?>" readonly>
+                                                    <input type="hidden" class="form-control" id="tahun_id" name="tahun_id" value="<?= $tahun->id ?>">
+                                                    <input type="hidden" class="form-control" id="kelas_id" name="kelas_id" value="<?= $siswa->kelas_id ?>">
                                                 </div>
                                             </div>
                                         </div>

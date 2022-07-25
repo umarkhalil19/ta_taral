@@ -19,7 +19,7 @@
                                         <div class="card-title">
                                             <h4>Tabel Data Mata Pelajaran</h4>
                                         </div>
-                                        <a href="<?= base_url('guru/kelas_detail/') ?>" class="btn btn-md btn-warning" title="Kembali"><em class="icon ni ni-arrow-left-fill-c"></em></a>
+                                        <a href="<?= base_url('guru/kelas_detail/' . $this->session->userdata('kelas')) ?>" class="btn btn-md btn-warning" title="Kembali"><em class="icon ni ni-arrow-left-fill-c"></em></a>
                                     </div>
                                     <br>
                                     <table class="datatable-init table">
@@ -34,16 +34,33 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Pendidikan Pancasila dan Kewarganegaraan</td>
-                                                <td>75</td>
-                                                <td>XI IPA 6</td>
-                                                <td>2022/2023</td>
-                                                <td>
-                                                    <a href="<?= base_url('guru/mapel_nilai/') ?>" class="btn btn-sm btn-info" title="Edit Nilai"><em class="icon ni ni-edit"></em></a>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($mapel->result() as $m) :
+                                            ?>
+                                                <tr>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $m->nama ?></td>
+                                                    <td><?= $m->kkm ?></td>
+                                                    <td><?= $m->kelas ?></td>
+                                                    <td><?= $m->tahun_ajaran . '/' . $m->semester ?></td>
+                                                    <td>
+                                                        <?php
+                                                        if ($this->session->userdata('final') == 0) {
+                                                        ?>
+                                                            <a href="<?= base_url('guru/mapel_nilai/' . $m->id) ?>" class="btn btn-sm btn-info" title="Edit Nilai"><em class="icon ni ni-edit"></em></a>
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <a href="<?= base_url('guru/mapel_nilai/' . $m->id) ?>" class="btn btn-sm btn-primary" title="Detail Nilai"><em class="icon ni ni-search"></em></a>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                            endforeach;
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

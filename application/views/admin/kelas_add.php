@@ -34,6 +34,7 @@
                                                 <div class="form-control-wrap">
                                                     <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Kelas">
                                                 </div>
+                                                <?php echo form_error('nama', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -48,7 +49,13 @@
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
                                                     <select name="tahun_ajar" id="tahun_ajar" class="form-control">
-                                                        <option value="1">2022/2023-Ganjil</option>
+                                                        <?php
+                                                        foreach ($tahun->result() as $t) :
+                                                        ?>
+                                                            <option value="<?= $t->id ?>"><?= $t->tahun_ajaran ?> - <?= $t->semester ?></option>
+                                                        <?php
+                                                        endforeach;
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -65,7 +72,13 @@
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
                                                     <select name="wali_kelas" id="wali_kelas" class="form-control">
-                                                        <option value="1">Asmah Zakaria, S.Pd</option>
+                                                        <?php
+                                                        foreach ($guru->result() as $g) :
+                                                        ?>
+                                                            <option value="<?= $g->nip ?>"><?= $g->nama ?></option>
+                                                        <?php
+                                                        endforeach
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>

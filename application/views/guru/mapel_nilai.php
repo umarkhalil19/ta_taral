@@ -17,7 +17,7 @@
                                 <div class="card-inner">
                                     <div class="card-title-group align-start mb-0">
                                         <div class="card-title">
-                                            <h4>Nilai Pendidikan Pancasila dan Kewarganegaraan</h4>
+                                            <h4>Nilai <?= $mapel->nama ?></h4>
                                         </div>
                                         <a href="<?= base_url('guru/kelas_rapor/') ?>" class="btn btn-md btn-warning" title="Kembali"><em class="icon ni ni-arrow-left-fill-c"></em></a>
                                     </div>
@@ -31,34 +31,74 @@
                                                 <th scope="col" colspan="2" style="text-align: center;">Nilai Keterampilan</th>
                                             </tr>
                                             <tr>
-                                                <th scope="col" style="text-align: center; width: 7%;">Angka</th>
+                                                <th scope="col" style="text-align: center; width: 8%;">Angka</th>
                                                 <th scope="col" style="text-align: center;">Deskripsi</th>
-                                                <th scope="col" style="text-align: center; width: 7%;">Angka</th>
+                                                <th scope="col" style="text-align: center; width: 8%;">Angka</th>
                                                 <th scope="col" style="text-align: center;">Deskripsi</th>
                                             </tr>
                                         </thead>
-                                        <?= form_open('#') ?>
+                                        <?= form_open('guru/mapel_nilai_act') ?>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Umar Khalil</td>
-                                                <td>
-                                                    <input type="text" class="form-control">
-                                                </td>
-                                                <td>
-                                                    <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
-                                                </td>
-                                                <td>
-                                                    <input type="text" class="form-control">
-                                                </td>
-                                                <td>
-                                                    <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($siswa->result() as $s) :
+                                            ?>
+                                                <tr>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $s->nama ?></td>
+                                                    <?php
+                                                    $pengetahuan = 0;
+                                                    $np_ket = '';
+                                                    $np_id = 0;
+                                                    $keterampilan = 0;
+                                                    $nk_ket = '';
+                                                    $nk_id = 0;
+                                                    foreach ($nilai_pengetahuan->result() as $np) {
+                                                        if ($np->nis == $s->nis) {
+                                                            $pengetahuan = $np->nilai;
+                                                            $np_ket = $np->keterangan;
+                                                            $np_id = $np->id;
+                                                        }
+                                                    }
+                                                    ?>
+                                                    <td>
+                                                        <input type="hidden" class="form-control" value="<?= $mapel->id ?>" name="mapel">
+                                                        <input type="hidden" class="form-control" value="<?= $np_id ?>" name="<?= "np_id_$s->nis" ?>">
+                                                        <input type="text" class="form-control" value="<?= $pengetahuan ?>" name="<?= "np_$s->nis" ?>" <?= $type ?>>
+                                                    </td>
+                                                    <td>
+                                                        <textarea name="<?= "np_ket_$s->nis" ?>" id="" cols="30" rows="3" class="form-control" <?= $type ?>><?= $np_ket ?></textarea>
+                                                    </td>
+                                                    <?php
+                                                    foreach ($nilai_keterampilan->result() as $nk) {
+                                                        if ($nk->nis == $s->nis) {
+                                                            $keterampilan = $nk->nilai;
+                                                            $nk_ket = $nk->keterangan;
+                                                            $nk_id = $nk->id;
+                                                        }
+                                                    }
+                                                    ?>
+                                                    <td>
+                                                        <input type="hidden" class="form-control" value="<?= $nk_id ?>" name="<?= "nk_id_$s->nis" ?>">
+                                                        <input type="text" class="form-control" value="<?= $keterampilan ?>" name="<?= "nk_$s->nis" ?>" <?= $type ?>>
+                                                    </td>
+                                                    <td>
+                                                        <textarea name="<?= "nk_ket_$s->nis" ?>" id="" cols="30" rows="3" class="form-control" <?= $type ?>><?= $nk_ket ?></textarea>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                            endforeach;
+                                            ?>
                                         </tbody>
                                     </table>
                                     <br>
-                                    <button class="btn btn-lg btn-success float-right" type="submit">Simpan</button>
+                                    <?php
+                                    if ($this->session->userdata() == 0) {
+                                    ?>
+                                        <button class="btn btn-lg btn-success float-right" type="submit">Simpan</button>
+                                    <?php
+                                    }
+                                    ?>
                                     <?= form_close() ?>
                                 </div>
                             </div><!-- .card -->

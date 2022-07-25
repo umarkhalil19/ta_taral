@@ -65,6 +65,9 @@
                                         <li class="nk-menu-item">
                                             <a href="<?= base_url('admin/siswa') ?>" class="nk-menu-link"><span class="nk-menu-text">Siswa</span></a>
                                         </li>
+                                        <li class="nk-menu-item">
+                                            <a href="<?= base_url('admin/user') ?>" class="nk-menu-link"><span class="nk-menu-text">Pengguna</span></a>
+                                        </li>
                                     </ul><!-- .nk-menu-sub -->
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
@@ -107,13 +110,7 @@
                                         </div>
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
-                                                <li><a href="html/invest/profile.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                                <li><a href="html/invest/profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="dropdown-inner">
-                                            <ul class="link-list">
-                                                <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                                <li><a href="<?= base_url('login/logout') ?>"><em class="icon ni ni-signout"></em><span>Log out</span></a></li>
                                             </ul>
                                         </div>
                                     </div>

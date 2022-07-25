@@ -10,6 +10,8 @@
                         </div><!-- .nk-block-head-content -->
                     </div><!-- .nk-block-between -->
                 </div><!-- .nk-block-head -->
+                <?php if (isset($_GET['notif'])) : _notif($this->session->flashdata($_GET['notif']));
+                endif; ?>
                 <div class="nk-block">
                     <div class="row g-gs">
                         <div class="col-md-12">
@@ -34,17 +36,25 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>XI IPA 6</td>
-                                                <!-- <td>30</td> -->
-                                                <td>Asmah Zakaria, S.Pd</td>
-                                                <td>2022/2023</td>
-                                                <td>
-                                                    <a href="<?= base_url('admin/kelas_edit/') ?>" class="btn btn-sm btn-warning" title="Edit Data Kelas"><em class="icon ni ni-edit"></em></a>
-                                                    <a href="" class="btn btn-sm btn-danger" title="Hapus Data Kelas"><em class="icon ni ni-trash-fill"></em></a>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($kelas->result() as $k) :
+                                            ?>
+                                                <tr>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $k->nama ?></td>
+                                                    <!-- <td>30</td> -->
+                                                    <td><?= $k->wali_kelas ?></td>
+                                                    <td><?= $k->tahun_ajaran . '-' . $k->semester ?></td>
+                                                    <td>
+                                                        <a href="<?= base_url('admin/kelas_edit/' . $k->id) ?>" class="btn btn-sm btn-warning" title="Edit Data Kelas"><em class="icon ni ni-edit"></em></a>
+                                                        <a href="<?= base_url('admin/kelas_delete/' . $k->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Data akan dihapus, apakah anda yakin?')" title="Hapus Data Kelas"><em class="icon ni ni-trash-fill"></em></a>
+                                                        <a href="<?= base_url('admin/kelas_siswa/' . $k->id) ?>" class="btn btn-sm btn-info" title="Data Siswa"><em class="icon ni ni-users-fill"></em></a>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                            endforeach;
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

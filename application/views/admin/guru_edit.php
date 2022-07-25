@@ -25,6 +25,23 @@
                                     <div class="row g-3 align-center">
                                         <div class="col-lg-4">
                                             <div class="form-group">
+                                                <label class="form-label" for="site-name">NIP</label>
+                                                <span class="form-note">Isi dengan NIP guru</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="form-group">
+                                                <div class="form-control-wrap">
+                                                    <input type="text" class="form-control" id="nip" name="nip" value="<?= set_value('nip', $guru->nip) ?>">
+                                                    <input type="hidden" class="form-control" id="id" name="id" value="<?= $guru->nip ?>">
+                                                </div>
+                                                <?php echo form_error('nip', '<small><span class="text-danger">', '</span></small>'); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-3 align-center">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
                                                 <label class="form-label" for="site-name">Nama</label>
                                                 <span class="form-note">Isi dengan Nama Lengkap tanpa gelar</span>
                                             </div>
@@ -32,8 +49,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="nama" name="nama" value="Nama Lengkap">
+                                                    <input type="text" class="form-control" id="nama" name="nama" value="<?= set_value('nama', $guru->nama) ?>">
                                                 </div>
+                                                <?php echo form_error('nama', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -47,7 +65,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="gelar_depan" name="gelar_depan" value="Gelar Depan">
+                                                    <input type="text" class="form-control" id="gelar_depan" name="gelar_depan" value="<?= set_value('gelar_depan', $guru->gelar_depan) ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -62,7 +80,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="gelar_belakang" name="gelar_belakang" value="Gelar Belakang">
+                                                    <input type="text" class="form-control" id="gelar_belakang" name="gelar_belakang" value="<?= set_value('gelar_belakang', $guru->gelar_belakang) ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -77,8 +95,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="pend_akhir" name="pend_akhir" value="Pendidikan Terakhir">
+                                                    <input type="text" class="form-control" id="pend_akhir" name="pend_akhir" value="<?= set_value('pend_akhir', $guru->pendidikan_terakhir) ?>">
                                                 </div>
+                                                <?php echo form_error('pend_akhir', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -92,8 +111,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="email" name="email" value="Email Aktif">
+                                                    <input type="text" class="form-control" id="email" name="email" value="<?= set_value('email', $guru->email) ?>">
                                                 </div>
+                                                <?php echo form_error('email', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -107,7 +127,7 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="np_hp" name="np_hp" value="No Hp">
+                                                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?= set_value('no_hp', $guru->no_hp) ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -122,8 +142,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <textarea name="alamat" id="alamat" cols="30" rows="5" class="form-control">Kota Lhokseumawe</textarea>
+                                                    <textarea name="alamat" id="alamat" cols="30" rows="5" class="form-control"><?= set_value('alamat', $guru->alamat) ?></textarea>
                                                 </div>
+                                                <?php echo form_error('alamat', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>

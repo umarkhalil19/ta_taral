@@ -32,8 +32,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Mata Pelajaran">
+                                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Mata Pelajaran" value="<?= set_value('nama') ?>">
                                                 </div>
+                                                <?php echo form_error('nama', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -47,8 +48,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="kkm" name="kkm" placeholder="Nilai Kriteria Ketuntasan Minimum">
+                                                    <input type="text" class="form-control" id="kkm" name="kkm" placeholder="Nilai Kriteria Ketuntasan Minimum" value="<?= set_value('kkm') ?>">
                                                 </div>
+                                                <?php echo form_error('kkm', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -62,8 +64,14 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <select name="tahun_ajar" id="tahun_ajar" class="form-control">
-                                                        <option value="1">2022/2023-Ganjil</option>
+                                                    <select name="tahun" id="tahun" class="form-control">
+                                                        <?php
+                                                        foreach ($tahun->result() as $t) :
+                                                        ?>
+                                                            <option value="<?= $t->id ?>"><?= $t->tahun_ajaran . '-' . $t->semester ?></option>
+                                                        <?php
+                                                        endforeach;
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -80,7 +88,13 @@
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
                                                     <select name="kelas" id="kelas" class="form-control">
-                                                        <option value="1">XI IPA 6</option>
+                                                        <?php
+                                                        foreach ($kelas->result() as $k) :
+                                                        ?>
+                                                            <option value="<?= $k->id ?>"><?= $k->nama ?></option>
+                                                        <?php
+                                                        endforeach;
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>

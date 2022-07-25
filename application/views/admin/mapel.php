@@ -10,6 +10,8 @@
                         </div><!-- .nk-block-head-content -->
                     </div><!-- .nk-block-between -->
                 </div><!-- .nk-block-head -->
+                <?php if (isset($_GET['notif'])) : _notif($this->session->flashdata($_GET['notif']));
+                endif; ?>
                 <div class="nk-block">
                     <div class="row g-gs">
                         <div class="col-md-12">
@@ -34,17 +36,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Pendidikan Pancasila dan Kewarganegaraan</td>
-                                                <td>75s</td>
-                                                <td>XI IPA 6</td>
-                                                <td>2022/2023</td>
-                                                <td>
-                                                    <a href="<?= base_url('admin/mapel_edit') ?>" class="btn btn-sm btn-warning" title="Edit Data Mapel"><em class="icon ni ni-edit"></em></a>
-                                                    <a href="" class="btn btn-sm btn-danger" title="Hapus Data Mapel"><em class="icon ni ni-trash-fill"></em></a>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($mapel->result() as $m) :
+                                            ?>
+                                                <tr>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $m->nama ?></td>
+                                                    <td><?= $m->kkm ?></td>
+                                                    <td><?= $m->kelas ?></td>
+                                                    <td><?= $m->tahun_ajaran . '-' . $m->semester ?></td>
+                                                    <td>
+                                                        <a href="<?= base_url('admin/mapel_edit/' . $m->id) ?>" class="btn btn-sm btn-warning" title="Edit Data Mapel"><em class="icon ni ni-edit"></em></a>
+                                                        <a href="<?= base_url('admin/mapel_delete/' . $m->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Data akan dihapus, apakah anda yakin?')" title="Hapus Data Mapel"><em class="icon ni ni-trash-fill"></em></a>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                            endforeach;
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

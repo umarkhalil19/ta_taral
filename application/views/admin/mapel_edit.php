@@ -32,8 +32,10 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="nama" name="nama" value="Nama Mata Pelajaran">
+                                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Mata Pelajaran" value="<?= set_value('nama', $mapel->nama) ?>">
+                                                    <input type="hidden" class="form-control" id="id" name="id" value="<?= set_value('id', $mapel->id) ?>">
                                                 </div>
+                                                <?php echo form_error('nama', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -47,8 +49,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="kkm" name="kkm" value="Nilai Kriteria Ketuntasan Minimum">
+                                                    <input type="text" class="form-control" id="kkm" name="kkm" placeholder="Nilai Kriteria Ketuntasan Minimum" value="<?= set_value('kkm', $mapel->kkm) ?>">
                                                 </div>
+                                                <?php echo form_error('kkm', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -62,8 +65,14 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <select name="tahun_ajar" id="tahun_ajar" class="form-control">
-                                                        <option value="1">2022/2023-Ganjil</option>
+                                                    <select name="tahun" id="tahun" class="form-control">
+                                                        <?php
+                                                        foreach ($tahun->result() as $t) :
+                                                        ?>
+                                                            <option <?= ($mapel->tahun_ajaran_id == $t->id) ? "selected" : "" ?> value="<?= $t->id ?>"><?= $t->tahun_ajaran . '-' . $t->semester ?></option>
+                                                        <?php
+                                                        endforeach;
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -80,7 +89,13 @@
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
                                                     <select name="kelas" id="kelas" class="form-control">
-                                                        <option value="1">XI IPA 6</option>
+                                                        <?php
+                                                        foreach ($kelas->result() as $k) :
+                                                        ?>
+                                                            <option <?= ($mapel->kelas_id == $k->id) ? "selected" : "" ?> value="<?= $k->id ?>"><?= $k->nama ?></option>
+                                                        <?php
+                                                        endforeach;
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -89,7 +104,8 @@
                                     <div class="row g-3">
                                         <div class="col-lg-8 offset-lg-5">
                                             <div class="form-group mt-2">
-                                                <button type="submit" class="btn btn-lg btn-primary">Tambah</button>
+                                                <a href="<?= base_url('admin/mapel') ?>" class="btn btn-lg btn-warning">Kembali</a>
+                                                <button type="submit" class="btn btn-lg btn-primary">Simpan</button>
                                             </div>
                                         </div>
                                     </div>

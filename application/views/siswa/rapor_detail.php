@@ -24,7 +24,7 @@
                                                 <tr>
                                                     <td>
                                                         <font style="font-family: times new roman; font-size:12pt;">Deskripsi Sikap :</font><br>
-                                                        <font style="font-family: times new roman; font-size:12pt;">Selalu bersyukur,selalu berdoa sebelum melakukan kegiatan dan perlu meningkatkan ketaatan beribadah selalu bersikap sopan,santun,peduli,percaya diri,disiplin dan tanggung jawab</font>
+                                                        <font style="font-family: times new roman; font-size:12pt;"><?= $kelas->deskripsi_sikap ?></font>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -50,18 +50,61 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Pendidikan Pancasila dan Kewarganegaraan</td>
-                                                        <td>75</td>
-                                                        <td>0</td>
-                                                        <td>D</td>
-                                                        <td>Kurang, belum menyakini hormat dan patuh pada orang tua dan guru sebagai kewajiban agama dan menjaga kebersamaan dengan orang lain dengan saling menasihati melalui khutbah, tablig dan dakwah</td>
-                                                        <td>75</td>
-                                                        <td>0</td>
-                                                        <td>D</td>
-                                                        <td>Kurang, belum menyakini hormat dan patuh pada orang tua dan guru sebagai kewajiban agama dan menjaga kebersamaan dengan orang lain dengan saling menasihati melalui khutbah, tablig dan dakwah</td>
-                                                    </tr>
+                                                    <?php
+                                                    $no = 1;
+                                                    foreach ($mapel->result() as $m) :
+                                                    ?>
+                                                        <tr>
+                                                            <td><?= $no++ ?></td>
+                                                            <td><?= $m->nama ?></td>
+                                                            <td><?= $m->kkm ?></td>
+                                                            <?php
+                                                            foreach ($nilai_pengetahuan->result() as $np) :
+                                                            ?>
+                                                                <td>
+                                                                    <?php
+                                                                    if ($np->mapel_id == $m->id) {
+                                                                        echo $np->nilai;
+                                                                    }
+                                                                    ?>
+                                                                </td>
+                                                                <td>D</td>
+                                                                <td>
+                                                                    <?php
+                                                                    if ($np->mapel_id == $m->id) {
+                                                                        echo $np->keterangan;
+                                                                    }
+                                                                    ?>
+                                                                </td>
+                                                            <?php
+                                                            endforeach;
+                                                            ?>
+                                                            <td><?= $m->kkm ?></td>
+                                                            <?php
+                                                            foreach ($nilai_keterampilan->result() as $nk) :
+                                                            ?>
+                                                                <td>
+                                                                    <?php
+                                                                    if ($nk->mapel_id == $m->id) {
+                                                                        echo $nk->nilai;
+                                                                    }
+                                                                    ?>
+                                                                </td>
+                                                                <td>D</td>
+                                                                <td>
+                                                                    <?php
+                                                                    if ($nk->mapel_id == $m->id) {
+                                                                        echo $nk->keterangan;
+                                                                    }
+                                                                    ?>
+                                                                </td>
+                                                            <?php
+                                                            endforeach;
+                                                            ?>
+                                                        </tr>
+                                                    <?php
+                                                    endforeach;
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

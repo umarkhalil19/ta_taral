@@ -10,6 +10,8 @@
                         </div><!-- .nk-block-head-content -->
                     </div><!-- .nk-block-between -->
                 </div><!-- .nk-block-head -->
+                <?php if (isset($_GET['notif'])) : _notif($this->session->flashdata($_GET['notif']));
+                endif; ?>
                 <div class="nk-block">
                     <div class="row g-gs">
                         <div class="col-md-12">
@@ -33,16 +35,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Asmah Zakaria, S.Pd</td>
-                                                <td>1031108702</td>
-                                                <td>082165401626</td>
-                                                <td>
-                                                    <a href="<?= base_url('admin/guru_edit/0') ?>" class="btn btn-sm btn-warning" title="Edit Data Guru"><em class="icon ni ni-edit"></em></a>
-                                                    <a href="" class="btn btn-sm btn-danger" title="Hapus Data Guru"><em class="icon ni ni-trash-fill"></em></a>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($guru->result() as $g) :
+                                            ?>
+                                                <tr>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $g->nama ?></td>
+                                                    <td><?= $g->nip ?></td>
+                                                    <td><?= $g->no_hp ?></td>
+                                                    <td>
+                                                        <a href="<?= base_url('admin/guru_edit/' . $g->nip) ?>" class="btn btn-sm btn-warning" title="Edit Data Guru"><em class="icon ni ni-edit"></em></a>
+                                                        <a href="<?= base_url('admin/guru_delete/' . $g->nip) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Data akan dihapus, apakah anda yakin?')" title="Hapus Data Guru"><em class="icon ni ni-trash-fill"></em></a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>

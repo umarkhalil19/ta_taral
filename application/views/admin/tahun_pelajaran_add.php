@@ -32,8 +32,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="2022/2023">
+                                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="2022/2023" value="<?= set_value('nama') ?>">
                                                 </div>
+                                                <?php echo form_error('nama', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -47,8 +48,9 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="semester" name="semester" placeholder="Ganjil/Genap">
+                                                    <input type="text" class="form-control" id="semester" name="semester" placeholder="Ganjil/Genap" value="<?= set_value('semester') ?>">
                                                 </div>
+                                                <?php echo form_error('semester', '<small><span class="text-danger">', '</span></small>'); ?>
                                             </div>
                                         </div>
                                     </div>

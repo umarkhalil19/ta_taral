@@ -11,6 +11,8 @@
                         <a href="<?= base_url('guru/kelas_siswa/') ?>" class="btn btn-md btn-warning" title="Kembali"><em class="icon ni ni-arrow-left-fill-c"></em></a>
                     </div><!-- .nk-block-between -->
                 </div><!-- .nk-block-head -->
+                <?php if (isset($_GET['notif'])) : _notif($this->session->flashdata($_GET['notif']));
+                endif; ?>
                 <div class="nk-block">
                     <div class="row g-gs">
                         <div class="col-md-12">
@@ -18,9 +20,9 @@
                                 <div class="card-inner">
                                     <div class="card-title-group align-start mb-0">
                                         <div class="card-title">
-                                            <h4>Tabel Data Prestasi Umar Khalil</h4>
+                                            <h4>Tabel Data Prestasi Siswa</h4>
                                         </div>
-                                        <a href="<?= base_url('guru/siswa_prestasi_add/') ?>" class="btn btn-md btn-primary float-right" title="Tambah Prestasi Siswa"><em class="icon ni ni-plus-round-fill"></em></a>
+                                        <a href="<?= base_url('guru/siswa_prestasi_add/' . $siswa->nis) ?>" class="btn btn-md btn-primary float-right" title="Tambah Prestasi Siswa"><em class="icon ni ni-plus-round-fill"></em></a>
                                     </div>
                                     <br>
                                     <table class="datatable-init table">
@@ -29,20 +31,25 @@
                                                 <th style="width: 5%;">#</th>
                                                 <th>Nama</th>
                                                 <th>Keterangan</th>
-                                                <th>Tahun Ajaran/Semester</th>
+                                                <!-- <th>Tahun Ajaran/Semester</th> -->
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Juara 1 Olimpiade TIK</td>
-                                                <td>Tingkat Provinsi Aceh</td>
-                                                <td>2022/2023-Semester Ganjil</td>
-                                                <td>
-                                                    <a href="" class="btn btn-sm btn-danger" title="Hapus Data Prestasi"><em class="icon ni ni-trash"></em></a>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($prestasi->result() as $p) :
+                                            ?>
+                                                <tr>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $p->nama ?></td>
+                                                    <td><?= $p->keterangan ?></td>
+                                                    <!-- <td>2022/2023-Semester Ganjil</td> -->
+                                                    <td>
+                                                        <a href="<?= base_url('guru/siswa_prestasi_del/' . $p->id . '/' . $siswa->nis) ?>" class="btn btn-sm btn-danger" title="Hapus Data Prestasi"><em class="icon ni ni-trash"></em></a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
