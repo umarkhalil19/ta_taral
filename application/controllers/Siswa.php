@@ -24,7 +24,7 @@ class Siswa extends CI_Controller
 
     public function biodata()
     {
-        $nis = '0001';
+        $nis = $this->session->userdata('id');
         $data['siswa'] = $this->db->get_where('siswa', ['nis' => $nis])->row();
         $this->mylib->sview('biodata', $data);
     }
@@ -76,14 +76,14 @@ class Siswa extends CI_Controller
 
     public function rapor()
     {
-        $nis = '0001';
+        $nis = $this->session->userdata('id');
         $data['rapor'] = $this->db->select('siswa_kelas.nis, siswa_kelas.kelas_id, kelas.nama as kelas, kelas.finalisasi as final, tahun_ajaran.tahun_ajaran, tahun_ajaran.semester')->from('siswa_kelas')->join('kelas', 'kelas.id=siswa_kelas.kelas_id', 'left')->join('tahun_ajaran', 'tahun_ajaran.id=siswa_kelas.tahun_ajaran_id', 'left')->where(['siswa_kelas.nis' => $nis])->get();
         $this->mylib->sview('rapor', $data);
     }
 
     public function rapor_detail($id = '')
     {
-        $nis = '0001';
+        $nis = $this->session->userdata('id');
         if ($id == "") {
             $this->session->set_flashdata('error', 'Data tidak ditemukan');
             redirect('siswa/rapor?notif=error');

@@ -93,7 +93,7 @@
                                     </table>
                                     <br>
                                     <?php
-                                    if ($this->session->userdata() == 0) {
+                                    if ($this->session->userdata('final') == 0) {
                                     ?>
                                         <button class="btn btn-lg btn-success float-right" type="submit">Simpan</button>
                                     <?php

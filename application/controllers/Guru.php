@@ -28,7 +28,7 @@ class Guru extends CI_Controller
     public function kelas()
     {
         // $data['kelas'] = $this->db->get_where('kelas', ['nip_grur' => $this->session->userdata['username']]);
-        $data['kelas'] = $this->db->select('kelas.*, tahun_ajaran.*')->from('kelas')->join('tahun_ajaran', 'tahun_ajaran.id=kelas.tahun_ajaran_id', 'left')->get();
+        $data['kelas'] = $this->db->select('kelas.*, tahun_ajaran.tahun_ajaran, tahun_ajaran.semester')->from('kelas')->join('tahun_ajaran', 'tahun_ajaran.id=kelas.tahun_ajaran_id', 'left')->get();
         $this->mylib->gview('kelas', $data);
     }
 
@@ -478,7 +478,7 @@ class Guru extends CI_Controller
         } else {
             $data = [
                 'catatan_wali_kelas' => $this->input->post('catatan_wali_kelas'),
-                'deskripsi_sikap' => $this->input->post('deskripsi_sikap'),
+                'deskripsi_sikap' => $this->input->post('sikap'),
                 'sakit' => $this->input->post('sakit'),
                 'izin' => $this->input->post('izin'),
                 'absen' => $this->input->post('absen')

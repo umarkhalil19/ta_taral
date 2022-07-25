@@ -61,45 +61,21 @@
                                                             <?php
                                                             foreach ($nilai_pengetahuan->result() as $np) :
                                                             ?>
-                                                                <td>
-                                                                    <?php
-                                                                    if ($np->mapel_id == $m->id) {
-                                                                        echo $np->nilai;
-                                                                    }
-                                                                    ?>
-                                                                </td>
+                                                                <td><?= ($np->kelas_id == $m->id) ? "$np->nilai" : "0" ?></td>
                                                                 <td>D</td>
-                                                                <td>
-                                                                    <?php
-                                                                    if ($np->mapel_id == $m->id) {
-                                                                        echo $np->keterangan;
-                                                                    }
-                                                                    ?>
-                                                                </td>
+                                                                <td><?= ($np->kelas_id == $m->id) ? "$np->keterangan" : "" ?></td>
                                                             <?php
-                                                            endforeach;
+                                                            endforeach
                                                             ?>
                                                             <td><?= $m->kkm ?></td>
                                                             <?php
                                                             foreach ($nilai_keterampilan->result() as $nk) :
                                                             ?>
-                                                                <td>
-                                                                    <?php
-                                                                    if ($nk->mapel_id == $m->id) {
-                                                                        echo $nk->nilai;
-                                                                    }
-                                                                    ?>
-                                                                </td>
+                                                                <td><?= ($nk->kelas_id == $m->id) ? "$nk->nilai" : "0" ?></td>
                                                                 <td>D</td>
-                                                                <td>
-                                                                    <?php
-                                                                    if ($nk->mapel_id == $m->id) {
-                                                                        echo $nk->keterangan;
-                                                                    }
-                                                                    ?>
-                                                                </td>
+                                                                <td><?= ($nk->kelas_id == $m->id) ? "$nk->keterangan" : "" ?></td>
                                                             <?php
-                                                            endforeach;
+                                                            endforeach
                                                             ?>
                                                         </tr>
                                                     <?php

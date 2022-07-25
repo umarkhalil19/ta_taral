@@ -121,6 +121,7 @@ class Admin extends CI_Controller
 
     public function guru_act()
     {
+        $this->form_validation->set_rules('nip', 'NIP Guru', 'trim|required');
         $this->form_validation->set_rules('nama', 'Nama Lengkap', 'trim|required');
         $this->form_validation->set_rules('pend_akhir', 'Pendidikan Terakhir', 'trim|required');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
@@ -394,6 +395,8 @@ class Admin extends CI_Controller
                 'tahun_ajaran_id' => $this->input->post('tahun_ajar'),
                 'nama' => $this->input->post('nama')
             ];
+            // var_dump($data);
+            // die;
             $this->db->insert('kelas', $data);
             $this->session->set_flashdata('suces', 'Data berhasil ditambah');
             redirect('admin/kelas?notif=suces');
