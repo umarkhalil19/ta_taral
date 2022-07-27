@@ -34,11 +34,11 @@ class Login extends CI_Controller
                     ];
                     $this->session->set_userdata($session);
                     if ($cek->level == 'admin') {
-                        redirect('admin');
+                        redirect('admin/index');
                     } elseif ($cek->level == 'guru') {
-                        redirect('guru');
+                        redirect('guru/index');
                     } elseif ($cek->level == 'siswa') {
-                        redirect('siswa');
+                        redirect('siswa/index');
                     } else {
                         $this->session->set_flashdata('error', 'Anda tidak memeliki akses!!!');
                         redirect('login?notif=error');

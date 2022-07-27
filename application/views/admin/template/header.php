@@ -28,17 +28,17 @@
                             <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em class="icon ni ni-menu"></em></a>
                         </div>
                         <div class="nk-header-brand">
-                            <a href="html/index.html" class="logo-link">
-                                <img class="logo-light logo-img" src="<?= base_url() ?>assets/images/logo.png" srcset="<?= base_url() ?>assets/images/logo2x.png 2x" alt="logo">
-                                <img class="logo-dark logo-img" src="<?= base_url() ?>assets/images/logo-dark.png" srcset="<?= base_url() ?>assets/images/logo-dark2x.png 2x" alt="logo-dark">
+                            <a href="<?= base_url('admin/index') ?>" class="logo-link">
+                                <img class="logo-light logo-img" src="<?= base_url() ?>assets/images/logo-sekolah.png" srcset="<?= base_url() ?>assets/images/logo-sekolah.png 2x" alt="logo">
+                                <img class="logo-dark logo-img" src="<?= base_url() ?>assets/images/logo-sekolah.png" srcset="<?= base_url() ?>assets/images/logo-sekolah.png 2x" alt="logo-dark">
                             </a>
                         </div><!-- .nk-header-brand -->
                         <div class="nk-header-menu" data-content="headerNav">
                             <div class="nk-header-mobile">
                                 <div class="nk-header-brand">
-                                    <a href="html/index.html" class="logo-link">
-                                        <img class="logo-light logo-img" src="<?= base_url() ?>assets/images/logo.png" srcset="<?= base_url() ?>assets/images/logo2x.png 2x" alt="logo">
-                                        <img class="logo-dark logo-img" src="<?= base_url() ?>assets/images/logo-dark.png" srcset="<?= base_url() ?>assets/images/logo-dark2x.png 2x" alt="logo-dark">
+                                    <a href="<?= base_url('admin/index') ?>" class="logo-link">
+                                        <img class="logo-light logo-img" src="<?= base_url() ?>assets/images/logo-sekolah.png" srcset="<?= base_url() ?>assets/images/logo-sekolah.png 2x" alt="logo">
+                                        <img class="logo-dark logo-img" src="<?= base_url() ?>assets/images/logo-sekolah.png" srcset="<?= base_url() ?>assets/images/logo-sekolah.png 2x" alt="logo-dark">
                                     </a>
                                 </div>
                                 <div class="nk-menu-trigger mr-n2">
@@ -47,7 +47,7 @@
                             </div>
                             <ul class="nk-menu nk-menu-main ui-s2">
                                 <li class="nk-menu-item">
-                                    <a href="<?= base_url() ?>" class="nk-menu-link">
+                                    <a href="<?= base_url('admin/index') ?>" class="nk-menu-link">
                                         <span class="nk-menu-text">Dashboard</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
@@ -92,22 +92,11 @@
                                             </div>
                                             <div class="user-info d-none d-xl-block">
                                                 <div class="user-status">Administrator</div>
-                                                <div class="user-name dropdown-indicator">Abu Bin Ishityak</div>
+                                                <div class="user-name dropdown-indicator"><?= _namauser($this->session->userdata('id')) ?></div>
                                             </div>
                                         </div>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropdown-menu-s1 is-light">
-                                        <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
-                                            <div class="user-card">
-                                                <div class="user-avatar">
-                                                    <span>AB</span>
-                                                </div>
-                                                <div class="user-info">
-                                                    <span class="lead-text">Abu Bin Ishtiyak</span>
-                                                    <span class="sub-text">info@softnio.com</span>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
                                                 <li><a href="<?= base_url('login/logout') ?>"><em class="icon ni ni-signout"></em><span>Log out</span></a></li>

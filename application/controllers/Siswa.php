@@ -92,7 +92,12 @@ class Siswa extends CI_Controller
             if ($data['kelas']) {
                 $data['nilai_pengetahuan'] = $this->db->get_where('siswa_nilai', ['nis' => $nis, 'kelas_id' => $id, 'type' => 'np']);
                 $data['nilai_keterampilan'] = $this->db->get_where('siswa_nilai', ['nis' => $nis, 'kelas_id' => $id, 'type' => 'nk']);
+                $data['total_np'] = $this->db->select('SUM(nilai) as total')->from('siswa_nilai')->where(['nis' => $nis, 'kelas_id' => $id, 'type' => 'np'])->get()->row();
+                $data['total_nk'] = $this->db->select('SUM(nilai) as total')->from('siswa_nilai')->where(['nis' => $nis, 'kelas_id' => $id, 'type' => 'nk'])->get()->row();
                 $data['mapel'] = $this->db->get_where('mapel', ['kelas_id' => $id]);
+                $data['jumlah_mapel'] = $data['mapel']->num_rows();
+                $data['ekskul'] = $this->db->get_where('siswa_ekskul', ['nis' => $nis]);
+                $data['prestasi'] = $this->db->get_where('siswa_prestasi', ['nis' => $nis]);
                 $this->mylib->sview('rapor_detail', $data);
             }
         }

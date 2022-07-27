@@ -61,9 +61,13 @@
                                                             <?php
                                                             foreach ($nilai_pengetahuan->result() as $np) :
                                                             ?>
-                                                                <td><?= ($np->kelas_id == $m->id) ? "$np->nilai" : "0" ?></td>
-                                                                <td>D</td>
-                                                                <td><?= ($np->kelas_id == $m->id) ? "$np->keterangan" : "" ?></td>
+                                                                <?php
+                                                                if ($np->mapel_id == $m->id) {
+                                                                    echo "<td>$np->nilai</td>";
+                                                                    echo "<td>D</td>";
+                                                                    echo "<td>$np->keterangan</td>";
+                                                                }
+                                                                ?>
                                                             <?php
                                                             endforeach
                                                             ?>
@@ -71,9 +75,13 @@
                                                             <?php
                                                             foreach ($nilai_keterampilan->result() as $nk) :
                                                             ?>
-                                                                <td><?= ($nk->kelas_id == $m->id) ? "$nk->nilai" : "0" ?></td>
-                                                                <td>D</td>
-                                                                <td><?= ($nk->kelas_id == $m->id) ? "$nk->keterangan" : "" ?></td>
+                                                                <?php
+                                                                if ($nk->mapel_id == $m->id) {
+                                                                    echo "<td>$nk->nilai</td>";
+                                                                    echo "<td>D</td>";
+                                                                    echo "<td>$nk->keterangan</td>";
+                                                                }
+                                                                ?>
                                                             <?php
                                                             endforeach
                                                             ?>
@@ -81,7 +89,49 @@
                                                     <?php
                                                     endforeach;
                                                     ?>
+                                                    <tr>
+                                                        <td colspan="3">Jumlah</td>
+                                                        <td colspan="2"><?= $total_np->total ?></td>
+                                                        <td colspan="2"></td>
+                                                        <td colspan="2"><?= $total_nk->total ?></td>
+                                                        <td colspan="2"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">Rata-rata</td>
+                                                        <td colspan="2"><?= $total_np->total / $jumlah_mapel ?></td>
+                                                        <td colspan="2"></td>
+                                                        <td colspan="2"><?= $total_nk->total / $jumlah_mapel ?></td>
+                                                        <td colspan="2"></td>
+                                                    </tr>
                                                 </tbody>
+                                            </table>
+                                            <br>
+                                            <h6>D. EKSTRAKURIKULER</h6>
+                                            <table class="table table-striped table-bordered">
+                                                <?php
+                                                $no = 1;
+                                                foreach ($ekskul->result() as $e) :
+                                                ?>
+                                                    <tr>
+                                                        <td style="width: 4%;"><?= $no++ ?></td>
+                                                        <td style="width:20%;"><?= $e->nama ?></td>
+                                                        <td><?= $e->keterangan ?></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </table>
+                                            <br>
+                                            <h6>E. PRESTASI</h6>
+                                            <table class="table table-striped table-bordered">
+                                                <?php
+                                                $no = 1;
+                                                foreach ($prestasi->result() as $p) :
+                                                ?>
+                                                    <tr>
+                                                        <td style="width: 4%;"><?= $no++ ?></td>
+                                                        <td style="width:20%;"><?= $p->nama ?></td>
+                                                        <td><?= $p->keterangan ?></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
                                             </table>
                                         </div>
                                     </div>

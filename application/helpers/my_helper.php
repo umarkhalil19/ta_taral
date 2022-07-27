@@ -222,4 +222,19 @@ function autoCodeBarang($field_code, $tabel, $where)
   return $coderesult;
 }
 
+function _namauser($id)
+{
+  $ci = &get_instance();
+  $level = $ci->session->userdata('level');
+  if ($level == 'siswa') {
+    $nama = $ci->db->select('nama')->from('siswa')->where(['nis' => $id])->get()->row();
+    return $nama->nama;
+  } elseif ($level == 'guru') {
+    $nama = $ci->db->select('nama')->from('guru')->where(['nip' => $id])->get()->row();
+    return $nama->nama;
+  } else {
+    return 'Operator Sekolah';
+  }
+}
+
 ?>

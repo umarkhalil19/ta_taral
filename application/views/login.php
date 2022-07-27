@@ -26,9 +26,9 @@
                 <div class="nk-content ">
                     <div class="nk-block nk-block-middle nk-auth-body  wide-xs">
                         <div class="brand-logo pb-4 text-center">
-                            <a href="html/index.html" class="logo-link">
-                                <img class="logo-light logo-img logo-img-lg" src="<?= base_url() ?>assets/images/logo.png" srcset="<?= base_url() ?>assets/images/logo2x.png 2x" alt="logo">
-                                <img class="logo-dark logo-img logo-img-lg" src="<?= base_url() ?>assets/images/logo-dark.png" srcset="<?= base_url() ?>assets/images/logo-dark2x.png 2x" alt="logo-dark">
+                            <a href="<?= base_url('login') ?>" class="logo-link">
+                                <img class="logo-light logo-img" src="<?= base_url() ?>assets/images/logo-sekolah.png" srcset="<?= base_url() ?>assets/images/logo-sekolah.png 2x" alt="logo">
+                                <img class="logo-dark logo-img" src="<?= base_url() ?>assets/images/logo-sekolah.png" srcset="<?= base_url() ?>assets/images/logo-sekolah.png 2x" alt="logo-dark">
                             </a>
                         </div>
                         <?php if (isset($_GET['notif'])) : _notif($this->session->flashdata($_GET['notif']));

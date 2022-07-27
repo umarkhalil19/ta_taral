@@ -17,7 +17,7 @@
                                 <div class="card-inner">
                                     <div class="card-title-group align-start mb-0">
                                         <div class="card-title">
-                                            <h4>Selamat Datang Pada Sistem E-Raport</h4>
+                                            <h4>Selamat Datang Pada Sistem E-Raport SMKS Karya Beringin Lhokseumawe</h4>
                                         </div>
                                     </div>
                                 </div>
